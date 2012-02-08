@@ -11,6 +11,7 @@
                 $("div_of_death").update("");
                 $("id_site").update(response.responseText);
                 $("id_site").enable();
+                doJobby();
             },
             onFailure: function(response) {
                 $("div_of_death").update(response.responseText);
@@ -31,8 +32,10 @@
                 $("plot_div").update("");
             }
         });
-
-    }  
+    }
+    document.observe('dom:loaded', function() {
+        selectSite();
+    });
 </script>
 {% endblock %}
 {% block content %}
